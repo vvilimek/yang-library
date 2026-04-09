@@ -1,3 +1,5 @@
+from typing import Any
+
 from ._types import QualName
 
 class DatastoreType:
@@ -13,7 +15,7 @@ class DatastoreType:
         if cls.QUAL_NAME in DatastoreType.__known_types:
             raise ValueError(f"Duplicate registration of datastore \"{qual_name[1]}:{qual_name[0]}\"")
 
-        DatastoreType.__known_types[qual_name] = cls
+        DatastoreType.__known_types[cls.QUAL_NAME] = cls
 
     @staticmethod
     def get(name: QualName) -> "DatastoreType":
@@ -23,7 +25,7 @@ class DatastoreType:
         raise ValueError(f"Unknown datastore {None}") # TODO format qual name
 
     def __hash__(self) -> int:
-        return hash(self.qual_name)
+        return hash(self.QUAL_NAME)
     
     def __eq__(self, other: Any) -> bool:
         if isinstance(other, DatastoreType):

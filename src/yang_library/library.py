@@ -5,12 +5,13 @@ from dataclasses import dataclass
 from abc import abstractmethod
 from collections import OrderedDict
 from urllib.parse import urlparse
+from typing import TypeAlias, Optional
 
 from .datastore import DatastoreType
 from ._types import QualName
 
 __all__ = (
-    "YangLibrary"," Datastore"," Schema"," ModuleSet "," Module"," ImportOnlyModule"," ImplementModule",
+    "YangLibrary", "Datastore", "Schema", "ModuleSet", "Module", "ImportOnlyModule", "ImplementModule",
     "Submodule"
 )
 
@@ -86,8 +87,8 @@ class ModuleSet:
 URL: TypeAlias = str
 Revision: TypeAlias = str
 
-RFC8525_REVISION_REGEX = re.compile("^\d{4}-\d{2}-\d{2}$")
-RFC7895_REVISION_REGEX = re.compile("^(|\d{4}-\d{2}-\d{2})$")
+RFC8525_REVISION_REGEX = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+RFC7895_REVISION_REGEX = re.compile(r"^(|\d{4}-\d{2}-\d{2})$")
 
 @dataclass
 class Module:
