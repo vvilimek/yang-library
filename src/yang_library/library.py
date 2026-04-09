@@ -1,5 +1,5 @@
 
-from dataclasses import dataclass
+import re
 
 from dataclasses import dataclass
 from abc import abstractmethod
@@ -7,6 +7,7 @@ from collections import OrderedDict
 from urllib.parse import urlparse
 
 from .datastore import DatastoreType
+from ._types import QualName
 
 __all__ = (
     "YangLibrary"," Datastore"," Schema"," ModuleSet "," Module"," ImportOnlyModule"," ImplementModule",

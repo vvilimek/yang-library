@@ -1,0 +1,1 @@
+QualName = tuple[str, str]

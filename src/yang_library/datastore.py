@@ -1,3 +1,5 @@
+from ._types import QualName
+
 class DatastoreType:
     QUAL_NAME = ("datastore", "ietf-datastores")
 
