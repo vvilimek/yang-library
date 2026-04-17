@@ -13,7 +13,7 @@ class DatastoreType:
 
     def __init_subclass__(cls) -> None:
         if cls.QUAL_NAME in DatastoreType.__known_types:
-            raise ValueError(f"Duplicate registration of datastore \"{qual_name[1]}:{qual_name[0]}\"")
+            raise ValueError(f"Duplicate registration of datastore \"{cls.QUAL_NAME[1]}:{cls.QUAL_NAME[0]}\"")
 
         DatastoreType.__known_types[cls.QUAL_NAME] = cls
 

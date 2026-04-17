@@ -1,4 +1,3 @@
-
 import re
 
 from dataclasses import dataclass
@@ -30,11 +29,11 @@ class YangLibrary:
         # module_set[""] = schema[""].module_sets[""]
         return len(self.datastore) == 0 and len(self.schema) == 0 and \
             len(self.module_set) == 1 and \
-            len(get_first(self.module_set)) == 0
+            len(next(iter(self.module_set))) == 0
 
     def get_set(self) -> "ModuleSet":
         if self.is_rfc7895():
-            return get_first(self.module_set.items())[1]
+            return next(iter(self.module_set.items()))[1]
         else:
             raise ValueError("Usable only for RFC7895 data models")
 
@@ -49,11 +48,11 @@ class Datastore:
 
     @property
     def name(self) -> str:
-        return self.__type.NAME
+        return self.__type.QUAL_NAME[0]
 
     @property
     def qual_name(self) -> QualName:
-        return self.__type.qual_name
+        return self.__type.QUAL_NAME
 
     def __init__(self, name: QualName, schema: "Schema") -> None:
         # TODO find the definition of ietf-datastores identity @name
