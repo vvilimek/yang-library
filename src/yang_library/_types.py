@@ -2,4 +2,6 @@
 #
 # SPDX-License-Identifier: LGPL-3.0-or-later
 
-QualName = tuple[str, str]
+from typing import TypeAlias
+
+QualName: TypeAlias = tuple[str, str]
