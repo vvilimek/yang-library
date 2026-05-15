@@ -8,7 +8,10 @@ authors = [
     { name = "Vojtech Vilimek", email = "vojtech.vilimek@nic.cz" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "cbor2>=6.1.1",
+    "yang-sid-base",
+]
 
 [build-system]
 requires = ["uv_build>=0.9.8,<0.10.0"]
@@ -17,4 +20,11 @@ build-backend = "uv_build"
 [dependency-groups]
 test = [
     "mypy>=1.20.1",
+    "pytest>=9.0.3",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+
+[tool.uv.sources]
+yang-sid-base = { git = "https://github.com/vvilimek/yang-sid-base" }
