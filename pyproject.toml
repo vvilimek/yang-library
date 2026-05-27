@@ -1,6 +1,6 @@
 [project]
 name = "yang-library"
-version = "0.1.0"
+version = "0.1.1"
 description = "Add your description here"
 readme = "README.md"
 license = "LGPL-3.0-or-later"
@@ -12,6 +12,12 @@ dependencies = [
     "cbor2>=6.1.1",
     "yang-sid-base",
 ]
+
+[project.optional-dependecies]
+sid = [
+    "yang-sid",
+]
+
 
 [build-system]
 requires = ["uv_build>=0.9.8,<0.10.0"]
@@ -28,3 +34,5 @@ pythonpath = [".", "src"]
 
 [tool.uv.sources]
 yang-sid-base = { git = "https://github.com/vvilimek/yang-sid-base" }
+yang-sid = { git = "https://github.com/vvilimek/yang-sid" }
+
