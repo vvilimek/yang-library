@@ -77,6 +77,11 @@ class Datastore:
     def qual_name(self) -> QualName:
         return self.__type.QUAL_NAME
 
+    @property
+    def datastore(self) -> DatastoreType:
+        return self.__type
+
+
     def __init__(self, datastore: DatastoreType, schema: "Schema") -> None:
         # TODO find the definition of ietf-datastores identity @name
         self.__type = datastore
@@ -154,7 +159,10 @@ class Module:
         self.identifier = identifier
         self.revision = revision
         self.namespace = namespace
-        self.location = location
+        if location is not None:
+            self.location = location
+        else:
+            self.location = tuple()
         if submodule is None:
             submodule = OrderedDict()
         elif not isinstance(submodule, OrderedDict):
