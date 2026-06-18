@@ -10,8 +10,9 @@ import re
 
 from dataclasses import dataclass, field
 from collections import OrderedDict
+from collections.abc import Iterable
 from urllib.parse import urlparse
-from typing import TypeAlias, Optional, TYPE_CHECKING, NewType
+from typing import TypeAlias, Optional, Union, TYPE_CHECKING, NewType
 
 from yang_sid_base import SID
 
